@@ -134,7 +134,6 @@ services:
 
 networks:
   phq9-network:
-    driver: bridge
     external: true
 
 volumes:
