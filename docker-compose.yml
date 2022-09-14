@@ -65,7 +65,7 @@ services:
     environment:
       VIRTUAL_HOST: www.phq9-thesis.page
       LETSENCRYPT_HOST: www.phq9-thesis.page
-      VIRTUAL_PORT: 8000
+      VIRTUAL_PORT: 3000
     networks:
       - webproxy
       - default
