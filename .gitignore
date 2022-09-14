@@ -1,5 +1,5 @@
 Image/
-
+db
 docker-gen*
 # Byte-compiled / optimized / DLL files
 __pycache__/
