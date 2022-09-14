@@ -49,6 +49,7 @@ services:
       - database
     volumes:
       - videos_storage:/server/app/videos_storage
+      - images_storage:/server/app/images_storage
 
   web:
     container_name: phq9-fontend
@@ -145,3 +146,4 @@ volumes:
   dhparam:
   portainer_data:
   videos_storage:
+  images_storage:
