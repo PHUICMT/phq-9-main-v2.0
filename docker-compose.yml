@@ -48,13 +48,17 @@ services:
     volumes:
       - videos_storage:/server/app/videos_storage
       - images_storage:/server/app/images_storage
+    enenvironment:
+      VIRTUAL_HOST: backend.phq9-thesis.page
+      LETSENCRYPT_HOST: backend.phq9-thesis.page
+      VIRTUAL_PORT: 5000
     networks:
       - webproxy
       - default
 
   web:
     container_name: phq9-fontend
-    image: "phuicmt/phq-9-fontendv2:1.0.0"
+    image: "phuicmt/phq-9-fontendv2:1.0.1"
     restart: always
     ports:
       - "3000:3000"
