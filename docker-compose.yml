@@ -25,15 +25,15 @@ services:
       ME_CONFIG_MONGODB_ADMINPASSWORD: adminPHQ9
       ME_CONFIG_MONGODB_SERVER: database
       ME_CONFIG_MONGODB_PORT: "27017"
+      VIRTUAL_HOST: database.phq9-thesis.page
+      LETSENCRYPT_HOST: database.phq9-thesis.page
+      VIRUTAL_PORT: 8081
     ports:
       - "0.0.0.0:8081:8081"
     networks:
       - phq9-network
     depends_on:
-      - database
-    VIRTUAL_HOST: database.phq9-thesis.page
-    LETSENCRYPT_HOST: database.phq9-thesis.page
-    VIRUTAL_PORT: 8081
+      - database 
 
   server:
     container_name: phq9-backend
