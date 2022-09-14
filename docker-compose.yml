@@ -46,8 +46,8 @@ services:
     expose:
       - "5000"
     volumes:
-      - videos_storage:/server/app/videos_storage
-      - images_storage:/server/app/images_storage
+      - videos_storage:./videos_storage
+      - images_storage:./images_storage
     environment:
       VIRTUAL_HOST: backend.phq9-thesis.page
       LETSENCRYPT_HOST: backend.phq9-thesis.page
