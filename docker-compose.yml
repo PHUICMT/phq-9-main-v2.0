@@ -70,23 +70,20 @@ services:
       LETSENCRYPT_HOST: phq9-thesis.page
 
   nginx-proxy:
-    image: bbtsoftwareag/nginx-proxy-unrestricted-requestsize:alpine
-    container_name: nginx-proxy
-    restart: always
-    ports:
-      - "80:80"
-      - "443:443"
-    links:
-      - web
-    volumes:
-      - vhost:/etc/nginx/vhost.d
-      - html:/usr/share/nginx/html
-      - certs:/etc/nginx/certs:ro
-      - dhparam:/etc/nginx/dhparam
-      - /var/run/docker.sock:/tmp/docker.sock:ro
-      - ./nginx/conf.d:/etc/nginx/conf.d
-    networks:
-      - phq9-network
+      image: nginxproxy/nginx-proxy
+      container_name: nginx-proxy
+      ports:
+        - "80:80"
+        - "443:443"
+      volumes:
+        - conf:/etc/nginx/conf.d
+        - vhost:/etc/nginx/vhost.d
+        - html:/usr/share/nginx/html
+        - certs:/etc/nginx/certs:ro
+        - /var/run/docker.sock:/tmp/docker.sock:ro
+      network_mode: bridge
+      links:
+        - web
 
   letsencrypt:
     image: nginxproxy/acme-companion
