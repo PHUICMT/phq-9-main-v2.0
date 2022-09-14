@@ -55,8 +55,6 @@ services:
     container_name: phq9-fontend
     image: "phuicmt/phq-9-fontendv2"
     restart: always
-    networks:
-      - phq9-network
     ports:
       - "3000:3000"
     expose:
@@ -68,6 +66,9 @@ services:
       DANGEROUSLY_DISABLE_HOST_CHECK: "true"
       VIRTUAL_HOST: phq9-thesis.page
       LETSENCRYPT_HOST: phq9-thesis.page
+    network_mode: bridge
+    # networks:
+    #   - phq9-network
 
   nginx-proxy:
       image: nginxproxy/nginx-proxy
