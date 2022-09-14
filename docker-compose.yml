@@ -33,7 +33,7 @@ services:
     networks:
       - phq9-network
     depends_on:
-      - database 
+      - database
 
   server:
     container_name: phq9-backend
@@ -66,8 +66,8 @@ services:
       - database
     environment:
       DANGEROUSLY_DISABLE_HOST_CHECK: "true"
-      VIRTUAL_HOST: www.phq9-thesis.page
-      LETSENCRYPT_HOST: www.phq9-thesis.page
+      VIRTUAL_HOST: phq9-thesis.page
+      LETSENCRYPT_HOST: phq9-thesis.page
 
   nginx-proxy:
     image: bbtsoftwareag/nginx-proxy-unrestricted-requestsize:alpine
@@ -97,6 +97,7 @@ services:
       - certs:/etc/nginx/certs:rw
       - acme:/etc/acme.sh
       - /var/run/docker.sock:/var/run/docker.sock:ro
+    network_mode: bridge
     depends_on:
       - nginx-proxy
     networks:
@@ -133,7 +134,7 @@ services:
 
 networks:
   phq9-network:
-    external: true
+    driver: bridge
 
 volumes:
   conf:
