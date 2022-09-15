@@ -58,7 +58,7 @@ services:
 
   web:
     container_name: phq9-fontend
-    image: "phuicmt/phq-9-fontendv2:1.0.3"
+    image: "phuicmt/phq-9-fontendv2:1.0.4"
     restart: always
     ports:
       - "3000:3000"
