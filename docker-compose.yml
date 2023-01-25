@@ -57,7 +57,7 @@ services:
       - default
 
   server-decision:
-    container_name: server
+    container_name: server-decision
     image: "phuicmt/phq-9-decisionv2"
     restart: always
     ports:
