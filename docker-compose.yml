@@ -68,6 +68,10 @@ services:
       - "5050"
     depends_on:
       - web
+    environment:
+      VIRTUAL_HOST: decision.phq9-thesis.page
+      LETSENCRYPT_HOST: decision.phq9-thesis.page
+      VIRTUAL_PORT: 5050
     networks:
       - webproxy
       - default
